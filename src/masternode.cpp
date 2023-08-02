@@ -373,52 +373,34 @@ bool CMasternode::IsInputAssociatedWithPubkey() const
 
 CAmount CMasternode::GetMasternodeNodeCollateral(int nHeight)
 {
-    if (nHeight <= 100000) {
-        return 15000 * COIN;
-    } else if (nHeight <= 200000 && nHeight > 100000) {
-        return 17500 * COIN;
-    } else if (nHeight > 200000) {
-        return 20000 * COIN;
-    }
+    if(nHeight > 1000000) return   5000 * COIN;
+    if(nHeight >  500000) return   2000 * COIN;
+    if(nHeight >  100000) return   1000 * COIN;
+    if(nHeight >   50000) return    500 * COIN;
+    if(nHeight >    2000) return    100 * COIN;
+
     return 0;
 }
 
 CAmount CMasternode::GetBlockValue(int nHeight)
 {
-    CAmount maxMoneyOut= Params().GetConsensus().nMaxMoneyOut;
-
-    if(nMoneySupply >= maxMoneyOut) {
-        return 0;
-    }
-
-    CAmount nSubsidy;
-
-    if (nHeight == 1) {
-        nSubsidy = 30000000 * COIN; // __DSW__ coin supply (30M)
-    } else if (nHeight <= 100000) {
-        nSubsidy = 100 * COIN;
-    } else if (nHeight > 100000 && nHeight <= 200000) {
-        nSubsidy = 125 * COIN;
-    } else if (nHeight > 200000 && nHeight <= 300000) {
-        nSubsidy = 150 * COIN;
-    } else if (nHeight > 300000 && nHeight <= 400000) {
-        nSubsidy = 125 * COIN;
-    } else if (nHeight > 400000) {
-        nSubsidy = 100 * COIN;
-    }
-
-    if(nMoneySupply + nSubsidy > maxMoneyOut) {
-        return nMoneySupply + nSubsidy - maxMoneyOut;
-    }
-
-    return nSubsidy;
+    if(nHeight > 1000000) return     50 * COIN;
+    if(nHeight >  750000) return    100 * COIN;
+    if(nHeight >  500000) return    150 * COIN;
+    if(nHeight >  250000) return    200 * COIN;
+    if(nHeight >  100000) return    250 * COIN;
+    if(nHeight >   50000) return    150 * COIN;
+    if(nHeight >   10000) return    100 * COIN;
+    if(nHeight >    1000) return     50 * COIN;
+    if(nHeight >       1) return     20 * COIN;
+    if(nHeight >       0) return  50000 * COIN;
 }
 
 CAmount CMasternode::GetMasternodePayment(int nHeight)
 {
-    if(nHeight <= 5000) return 0;
-
-    return CMasternode::GetBlockValue(nHeight) * 95 / 100;
+    if(nHeight <= 2000) return 0;
+    if(nHeight > 1000000) return CMasternode::GetBlockValue(nHeight) * 85 / 100;
+    return CMasternode::GetBlockValue(nHeight) * 70 / 100;
 }
 
 void CMasternode::InitMasternodeCollateralList() {
