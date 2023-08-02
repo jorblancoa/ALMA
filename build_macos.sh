@@ -8,7 +8,7 @@ fi
 
 # Clone code from official Github repository
     rm -rf DSW
-    git clone https://github.com/decenomy/DSW.git
+    git clone https://github.com/jorblancoa/ALMA.git
 
 # Entering directory
     cd DSW

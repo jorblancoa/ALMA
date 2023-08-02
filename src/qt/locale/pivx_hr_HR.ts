@@ -1577,9 +1577,9 @@ NODEOVI</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-        __decenomy_discord_link__</source>
+        discord.gg/ALMA</source>
         <translation>Jezik nedostaje ili prijevod nije potpun? Pomozite s prijevodom ovdje:
-        __decenomy_discord_link__</translation>
+        discord.gg/ALMA</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3409,8 +3409,8 @@ Došlo je do greške prilikom spremanja popisa adresa u %1. Molimo pokušajte po
         <translation>2) Zašto se moji ALMA ne mogu potrošiti?</translation>
     </message>
     <message>
-        <source>__decenomy_website_link__/</source>
-        <translation>__decenomy_website_link__/</translation>
+        <source>almacoin.com/</source>
+        <translation>almacoin.com/</translation>
     </message>
     <message>
         <source>1</source>

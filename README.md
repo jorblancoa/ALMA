@@ -1,8 +1,18 @@
-**ALERT: This document should be updated for EACH coin individually**
-**The dummy values below belongs to Sapphire Coin**
-
-DECENOMY Standard wallet repository
+ALMA Standard wallet repository
 =====================================
+
+### About ALMA
+
+I present to you ALMA - a groundbreaking coin designed to inspire and facilitate personal growth journeys. As "ALMA" means "soul" in Spanish, the coin symbolizes the very essence of self-discovery and self-improvement.
+
+ALMA's primary use case revolves around fostering personal development and education. Users will have the opportunity to earn tokens as they progress through customized learning paths, complete tasks that contribute to their growth, and achieve significant milestones in their development journey. These tokens will serve as tangible rewards and incentives, encouraging users to stay committed to their self-improvement goals.
+
+Additionally, ALMA will open doors to exclusive content, coaching sessions, and workshops, offering users the chance to deepen their knowledge and skills in various areas of personal development.
+
+Imagine a cryptocurrency that not only facilitates financial transactions but also becomes a powerful symbol of personal empowerment, reflecting the pursuit of a fulfilled and purpose-driven life. ALMA's goal is to become a beacon for individuals seeking to unleash their potential and lead meaningful lives.
+
+![alt text](https://cdn0.psicologia-online.com/es/posts/9/4/1/que_es_el_alma_en_psicologia_5149_orig.jpg)
+
 
 ### Coin Specs
 
@@ -17,7 +27,7 @@ DECENOMY Standard wallet repository
 
 • Explorer https://explorer.decenomy.net/
 
-• Website [https://almacoin.com/](https://sappcoin.com/)
+• Website [https://almacoin.com/](https://almacoin.com/)
 
 ### Rewards Breakdown
 <table border=0 cellpadding=0 cellspacing=0 width=701 class=xl6553517252

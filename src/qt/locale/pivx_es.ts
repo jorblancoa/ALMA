@@ -1611,9 +1611,9 @@ MAESTROS</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-        __decenomy_discord_link__</source>
+        discord.gg/ALMA</source>
         <translation>¿Falta su lenguaje o la traducción está incompleta? Contribuya con las traducciones aquí:
-        __decenomy_discord_link__</translation>
+        discord.gg/ALMA</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3480,8 +3480,8 @@ Ha habido un error al tratar de guardar la libreta de direcciones en %1. Por fav
         <translation>2) ¿Por qué mis ALMA no se pueden gastar?</translation>
     </message>
     <message>
-        <source>__decenomy_website_link__/</source>
-        <translation>__decenomy_website_link__/</translation>
+        <source>almacoin.com/</source>
+        <translation>almacoin.com/</translation>
     </message>
     <message>
         <source>1</source>

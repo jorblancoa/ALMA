@@ -1,7 +1,7 @@
 <!--- Remove this description and sections that do not apply -->
 
 This issue tracker is only for technical issues related to Alma Core.
-General Alma questions and/or support requests and are best directed to the [Alma Discord](__decenomy_discord_link__).
+General Alma questions and/or support requests and are best directed to the [Alma Discord](discord.gg/ALMA).
 
 ### Describe the issue
 

@@ -30,7 +30,7 @@ UniValue checkconnection(const JSONRPCRequest& request)
             "1. \"node\"     (string, required) The node address (see getpeerinfo for nodes)\n"
 
             "\nExamples:\n" +
-            HelpExampleCli("checkconnection", "\"192.168.0.6:__PORT_MAINNET__\"") + HelpExampleRpc("checkconnection", "\"192.168.0.6:__PORT_MAINNET__\""));
+            HelpExampleCli("checkconnection", "\"192.168.0.6:42270\"") + HelpExampleRpc("checkconnection", "\"192.168.0.6:42270\""));
 
     std::string strNode = request.params[0].get_str();
     CService service = CService(strNode, Params().GetDefaultPort());
@@ -229,7 +229,7 @@ UniValue addnode(const JSONRPCRequest& request)
             "2. \"command\"  (string, optional) 'add' to add a node to the list, 'remove' to remove a node from the list, 'onetry' (default) to try a connection to the node once\n"
 
             "\nExamples:\n" +
-            HelpExampleCli("addnode", "\"192.168.0.6:__PORT_MAINNET__\" \"onetry\"") + HelpExampleRpc("addnode", "\"192.168.0.6:__PORT_MAINNET__\", \"onetry\""));
+            HelpExampleCli("addnode", "\"192.168.0.6:42270\" \"onetry\"") + HelpExampleRpc("addnode", "\"192.168.0.6:42270\", \"onetry\""));
 
     if(!g_connman)
         throw JSONRPCError(RPC_CLIENT_P2P_DISABLED, "Error: Peer-to-peer functionality missing or disabled");
@@ -297,7 +297,7 @@ UniValue getaddednodeinfo(const JSONRPCRequest& request)
             "    \"connected\" : true|false,          (boolean) If connected\n"
             "    \"addresses\" : [                    (list of objects) Only when connected = true\n"
             "       {\n"
-            "         \"address\" : \"192.168.0.201:__PORT_MAINNET__\",  (string) The alma server IP and port we're connected to\n"
+            "         \"address\" : \"192.168.0.201:42270\",  (string) The alma server IP and port we're connected to\n"
             "         \"connected\" : \"outbound\"           (string) connection, inbound or outbound\n"
             "       }\n"
             "     ]\n"
