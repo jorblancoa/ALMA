@@ -97,7 +97,7 @@ TopBar::TopBar(PIVXGUI* _mainWindow, QWidget* parent) : PWidget(_mainWindow, par
     ui->pushButtonStack->setButtonText(tr("Staking Disabled"));
 
     ui->pushButtonConf->setButtonClassStyle("cssClass", "btn-check-conf");
-    ui->pushButtonConf->setButtonText("__decenomy__.conf");
+    ui->pushButtonConf->setButtonText("alma.conf");
     ui->pushButtonConf->setChecked(false);
 
     ui->pushButtonMasternodes->setButtonClassStyle("cssClass", "btn-check-masternodes");
@@ -372,7 +372,7 @@ void TopBar::onBtnConfClicked()
     ui->pushButtonConf->setChecked(false);
 
     if (!GUIUtil::openConfigfile())
-        inform(tr("Unable to open __decenomy__.conf with default application"));
+        inform(tr("Unable to open alma.conf with default application"));
 }
 
 void TopBar::onBtnMasternodesClicked()
@@ -610,7 +610,7 @@ void TopBar::loadWalletModel()
     connect(walletModel, &WalletModel::encryptionStatusChanged, this, &TopBar::refreshStatus);
     // Ask for passphrase if needed
     connect(walletModel, &WalletModel::requireUnlock, this, &TopBar::unlockWallet);
-    // update the display unit, to not use the default ("__DSW__")
+    // update the display unit, to not use the default ("ALMA")
     updateDisplayUnit();
 
     refreshStatus();
@@ -741,7 +741,7 @@ void TopBar::updateBalances(const interfaces::WalletBalances& newBalance)
 
     CAmount nAvailableBalance = newBalance.balance - nLockedBalance;
 
-    // __DSW__
+    // ALMA
     // Top
     ui->labelAmountTopPiv->setText(GUIUtil::formatBalance(nAvailableBalance, nDisplayUnit));
     // Expanded

@@ -33,9 +33,9 @@ sudo bash -c "echo 0 > /proc/sys/fs/binfmt_misc/status"
 	cd ..
 
 # Create zip file of binaries
-	cp DSW/src/__decenomy__d.exe DSW/src/__decenomy__-cli.exe DSW/src/__decenomy__-tx.exe DSW/src/qt/__decenomy__-qt.exe .
-	zip __DSW__-Windows.zip __decenomy__d.exe __decenomy__-cli.exe __decenomy__-tx.exe __decenomy__-qt.exe
-	rm -f __decenomy__d.exe __decenomy__-cli.exe __decenomy__-tx.exe __decenomy__-qt.exe
+	cp DSW/src/almad.exe DSW/src/alma-cli.exe DSW/src/alma-tx.exe DSW/src/qt/alma-qt.exe .
+	zip ALMA-Windows.zip almad.exe alma-cli.exe alma-tx.exe alma-qt.exe
+	rm -f almad.exe alma-cli.exe alma-tx.exe alma-qt.exe
 
 # Enable WSL support for Win32 applications.
 	sudo bash -c "echo 1 > /proc/sys/fs/binfmt_misc/status"

@@ -8,13 +8,13 @@ reset-files.bash
 configure~
 
 # DSW
-src/__decenomy__
-src/__decenomy__d
-src/__decenomy__-cli
-src/__decenomy__-tx
-src/bench/bench___decenomy__
-src/test/test___decenomy__
-src/qt/test/test___decenomy__-qt
+src/alma
+src/almad
+src/alma-cli
+src/alma-tx
+src/bench/bench_alma
+src/test/test_alma
+src/qt/test/test_alma-qt
 
 # Sapphire
 src/bench/bench_sapphire
@@ -256,7 +256,7 @@ src/qt/test/moc*.cpp
 *.o-*
 *.patch
 .pivx
-.__decenomy__
+.alma
 *.a
 *.pb.cc
 *.pb.h
@@ -276,7 +276,7 @@ src/qt/test/moc*.cpp
 *.qm
 Makefile
 pivx-qt
-__decenomy__-qt
+alma-qt
 Jackpot-Qt.app
 background.tiff*
 
@@ -288,7 +288,7 @@ target/
 # Unit-tests
 Makefile.test
 pivx-qt_test
-__decenomy__-qt_test
+alma-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -305,7 +305,7 @@ build
 *.gcno
 /*.info
 test_pivx.coverage/
-test___decenomy__.coverage/
+test_alma.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -337,9 +337,9 @@ moc_*
 ui_*
 build*
 pivxd.*
-__decenomy__d.*
+almad.*
 pivxd-new-gui.*
-__decenomy__d-new-gui.*
+almad-new-gui.*
 
 # for Visual Studio Code
 

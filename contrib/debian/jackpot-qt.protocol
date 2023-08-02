@@ -1,6 +1,6 @@
 [Protocol]
-exec=__decenomy__-qt '%u'
-protocol=__decenomy__
+exec=alma-qt '%u'
+protocol=alma
 input=none
 output=none
 helper=true

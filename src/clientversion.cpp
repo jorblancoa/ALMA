@@ -11,10 +11,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both __decenomy__d and __decenomy__-qt, to make it harder for attackers to
+ * for both almad and alma-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("__Decenomy__ Core");
+const std::string CLIENT_NAME("Alma Core");
 
 /**
  * Client version number
@@ -43,10 +43,11 @@ const std::string CLIENT_NAME("__Decenomy__ Core");
 #include "obj/build.h"
 #endif
 
-//! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. $Format:%n#define GIT_ARCHIVE 1$
+//! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
+#define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#define GIT_COMMIT_ID "$Format:%H$"
-#define GIT_COMMIT_DATE "$Format:%cD$"
+#define GIT_COMMIT_ID "0af3ce10402b8386794167e1ffe5e5211cc402d2"
+#define GIT_COMMIT_DATE "Wed, 2 Aug 2023 13:10:18 +0200"
 #endif
 
 #define BUILD_DESC_WITH_SUFFIX(maj, min, rev, build, suffix) \

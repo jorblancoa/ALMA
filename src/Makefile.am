@@ -65,15 +65,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += __decenomy__d
+  bin_PROGRAMS += almad
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += __decenomy__-cli __decenomy__-tx
+  bin_PROGRAMS += alma-cli alma-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# __decenomy__ core #
+# alma core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   activemasternodeman.h \
@@ -212,7 +212,7 @@ obj/build.h: FORCE
 	  "$(abs_top_srcdir)"
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between __decenomy__d and __decenomy__-qt
+# server: shared between almad and alma-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -263,7 +263,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between __decenomy__d and __decenomy__-qt, but only linked
+# wallet: shared between almad and alma-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -355,7 +355,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/fugue.c \
   crypto/sph_sha2big.c
 
-# common: shared between __decenomy__d, and __decenomy__-qt and non-server tools
+# common: shared between almad, and alma-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -427,7 +427,7 @@ if GLIBC_BACK_COMPAT
 AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
-# cli: shared between __decenomy__-cli and __decenomy__-qt
+# cli: shared between alma-cli and alma-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -437,16 +437,16 @@ libbitcoin_cli_a_SOURCES = \
 nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# __decenomy__d binary #
-__decenomy__d_SOURCES = pivxd.cpp
-__decenomy__d_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-__decenomy__d_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-__decenomy__d_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# almad binary #
+almad_SOURCES = pivxd.cpp
+almad_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+almad_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+almad_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-__decenomy__d_SOURCES += pivxd-res.rc
+almad_SOURCES += pivxd-res.rc
 endif
-__decenomy__d_LDADD = \
+almad_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_WALLET) \
   $(LIBBITCOIN_COMMON) \
@@ -459,45 +459,45 @@ __decenomy__d_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-__decenomy__d_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+almad_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# __decenomy__-cli binary #
-__decenomy___cli_SOURCES = pivx-cli.cpp
-__decenomy___cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-__decenomy___cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-__decenomy___cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# alma-cli binary #
+alma_cli_SOURCES = pivx-cli.cpp
+alma_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+alma_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+alma_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-__decenomy___cli_SOURCES += pivx-cli-res.rc
+alma_cli_SOURCES += pivx-cli-res.rc
 endif
 
-__decenomy___cli_LDADD = \
+alma_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-__decenomy___cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+alma_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# __decenomy__-tx binary #
-__decenomy___tx_SOURCES = pivx-tx.cpp
-__decenomy___tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-__decenomy___tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-__decenomy___tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# alma-tx binary #
+alma_tx_SOURCES = pivx-tx.cpp
+alma_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+alma_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+alma_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-__decenomy___tx_SOURCES += pivx-tx-res.rc
+alma_tx_SOURCES += pivx-tx-res.rc
 endif
 
-__decenomy___tx_LDADD = \
+alma_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-__decenomy___tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+alma_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #
