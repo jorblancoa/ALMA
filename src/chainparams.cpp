@@ -52,7 +52,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Sometimes you hit the jackpot and sometimes the jackpot hits you";
+    const char* pszTimestamp = "11/Aug/2023 AlmaCoin Launched!";
     const CScript genesisOutputScript = CScript() << ParseHex("0478505c5bc438e08c0c8de26a661bc5a4453378d0b149fbf17cb3e1499b1d3e552fe5faaa253673c5349b461bd964a2ee860c114e9d2b9fdb0328f37ed356ed54") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -153,7 +153,7 @@ public:
 
         // /////////////////////////////////////////////////////////////////
 
-        genesis = CreateGenesisBlock(1612360301, 4843816, 0x1e0ffff0, 1, 0 * COIN);
+        genesis = CreateGenesisBlock(1691748154, 1234567, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x0000095e24c9de08faea91e7dcafda400edcd769c0a4201081966f10bdef7896"));
         assert(genesis.hashMerkleRoot == uint256S("0xad9cdf0829529533d9ebcda4f6981195860fdc01c7f6d3f14b847695835fc872"));
@@ -168,7 +168,7 @@ public:
         consensus.nMaxMoneyOut = 9999999999 * COIN;
         consensus.nPoolMaxTransactions = 3;
         consensus.nStakeMinAge = 60 * 60; // 1h
-        consensus.nStakeMinDepth = 100;
+        consensus.nStakeMinDepth = 60;
         consensus.nStakeMinDepthV2 = 600;
         consensus.nTargetTimespan = 40 * 60;
         consensus.nTargetTimespanV2 = 30 * 60;
@@ -222,11 +222,6 @@ public:
 	    vSeeds.push_back(CDNSSeedData("seed1", "seed1.almacoin.com"));
         vSeeds.push_back(CDNSSeedData("seed2", "seed2.almacoin.com"));
         vSeeds.push_back(CDNSSeedData("seed3", "seed3.almacoin.com"));
-        vSeeds.push_back(CDNSSeedData("seed4", "seed4.almacoin.com"));
-	    vSeeds.push_back(CDNSSeedData("seed5", "seed5.almacoin.com"));
-	    vSeeds.push_back(CDNSSeedData("seed6", "seed6.almacoin.com"));
-	    vSeeds.push_back(CDNSSeedData("seed7", "seed7.almacoin.com"));
-	    vSeeds.push_back(CDNSSeedData("seed8", "seed8.almacoin.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 15); // 7
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 16); // 7
@@ -259,7 +254,7 @@ public:
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
 
-        genesis = CreateGenesisBlock(1454124731, 2402015, 0x1e0ffff0, 1, 250 * COIN);
+        genesis = CreateGenesisBlock(1689206400, 2402015, 0x1e0ffff0, 1, 250 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         //assert(consensus.hashGenesisBlock == uint256S("0x0000041e482b9b9691d98eefb48473405c0b8ec31b76df3797c74a78680ef818"));
         //assert(genesis.hashMerkleRoot == uint256S("0x1b2ef6e2f28be914103a277377ae7729dcd125dfeb8bf97bd5964ba72b6dc39b"));
@@ -354,7 +349,7 @@ public:
         networkID = CBaseChainParams::REGTEST;
         strNetworkID = "regtest";
 
-        genesis = CreateGenesisBlock(1454124731, 2402015, 0x1e0ffff0, 1, 250 * COIN);
+        genesis = CreateGenesisBlock(1689206400, 2402015, 0x1e0ffff0, 1, 250 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         //assert(consensus.hashGenesisBlock == uint256S("0x0000041e482b9b9691d98eefb48473405c0b8ec31b76df3797c74a78680ef818"));
         //assert(genesis.hashMerkleRoot == uint256S("0x1b2ef6e2f28be914103a277377ae7729dcd125dfeb8bf97bd5964ba72b6dc39b"));
